@@ -27,9 +27,9 @@ const App = () => {
 
   return (
     <div id="main">
-      <h1>Hello</h1>
+      {/* <h1>Hello</h1> */}
       <select name="" id="" onChange={handleSelectValue}>
-        <option value="Null">Null</option>
+        <option value=""></option>
         {dataKeys.map((data) => {
           return <option value={data}>{data}</option>;
         })}
