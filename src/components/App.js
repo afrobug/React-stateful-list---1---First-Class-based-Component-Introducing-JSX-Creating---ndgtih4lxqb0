@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../styles/App.css";
 
@@ -14,16 +14,17 @@ const data = {
   2022: ["Adventures of Saiman", "Adventures of Shaktiman"],
 };
 
-const years = Object.keys(data);
-console.log(years);
+const dataKeys = Object.keys(data);
+const myData = data[2018];
+console.log("myData", myData);
 
 const App = () => {
-  const [value, setValue] = React.useState("") 
+  const [value, setValue] = useState("");
 
-  const handleDropdown = (event)=>{
-    // console.log("msg", event.target.value)
-    setValue(event.target.value)
-  }
+  const handleSelectValue = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <div id="main">
       <h1>Hello</h1>
@@ -33,7 +34,9 @@ const App = () => {
           return <option value={data}>{data}</option>;
         })}
       </select>
-      <div id="selected-year">{value === "" ? "No year selected" : `Year Selected ${value}`}</div>
+      <div id="selected-year">
+        {value === "" ? "No year selected" : `Year Selected ${value}`}
+      </div>
       {data[value]?.map((movie) => {
         return <li>{movie}</li>;
       })}
