@@ -26,16 +26,17 @@ const App = () => {
   }
   return (
     <div id="main">
-      <select onChange={handleDropdown}>
-        <option value="">Null</option>
-        {
-          years.map((year)=>{
-            return <option value={year}>{year}</option>
-
-          })
-        }
+      <h1>Hello</h1>
+      <select name="" id="" onChange={handleSelectValue}>
+        <option value="Null">Null</option>
+        {dataKeys.map((data) => {
+          return <option value={data}>{data}</option>;
+        })}
       </select>
-      <div>{data[value]}</div>
+      <div id="selected-year">{value === "" ? "No year selected" : `Year Selected ${value}`}</div>
+      {data[value]?.map((movie) => {
+        return <li>{movie}</li>;
+      })}
     </div>
   );
 };
